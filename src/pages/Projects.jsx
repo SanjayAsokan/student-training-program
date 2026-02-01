@@ -91,7 +91,7 @@ function Projects() {
         {/* HEADER */}
         <div className="text-center mb-20">
           <span className="inline-block text-sm font-semibold text-blue-600 tracking-wide uppercase mb-3">
-            Final Semester Projects
+            Final year Projects
           </span>
 
           <h1 className="text-5xl font-extrabold text-slate-900 mb-6">
@@ -99,7 +99,7 @@ function Projects() {
           </h1>
 
           <p className="text-slate-600 max-w-3xl mx-auto text-lg">
-            Carefully designed for MCA/BCA final-semester students, focusing on real-world problems, database usage, and practical implementation required for academic submission and viva.
+            Carefully designed for all final-semester students, focusing on real-world problems, database usage, and practical implementation required for academic submission and viva.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ function Projects() {
         {/* FOOT NOTE */}
         <div className="mt-24 text-center max-w-3xl mx-auto">
           <p className="text-slate-600 text-lg">
-            Each project includes problem understanding, system design, implementation, and explanation—making them ideal for final-semester evaluation and project defense.
+            Each project includes problem understanding, system design, implementation, and explanation—making them ideal for final-year evaluation and project defense.
           </p>
         </div>
 
