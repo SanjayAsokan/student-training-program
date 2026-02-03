@@ -35,12 +35,12 @@ const pricingMatrix = {
     immediate: {
       duration: "4–6 Weeks (12 Days)",
       approach: "Project-first, fast execution",
-      price: "₹3,999",
+      price: "₹2,999",
     },
     indepth: {
       duration: "8–12 Weeks (24 Days)",
       approach: "Concept-first, in-depth learning",
-      price: "₹4,999",
+      price: "₹3,999",
     },
   },
   major: {
@@ -49,12 +49,12 @@ const pricingMatrix = {
     immediate: {
       duration: "4–6 Weeks (12 Days)",
       approach: "Fast-track industry project",
-      price: "₹8,999",
+      price: "₹3,999",
     },
     indepth: {
       duration: "8–12 Weeks (24 Days)",
       approach: "Complete industry-level training",
-      price: "₹12,999",
+      price: "₹4,999",
     },
   },
 };
@@ -77,6 +77,28 @@ function EnrollmentForm() {
 
   const selectedProject = pricingMatrix[projectType];
   const selectedTrack = selectedProject[learningTrack];
+
+  // Construct pre-filled Google Form URL
+  // Base form URL
+  const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfcHYdCTz7KWI7GwiP3Xd9pInNJY6MH5G0LtlYLPyICShFaug/viewform";
+
+  // You need to replace these entry IDs with the actual ones from your Google Form
+  // To get entry IDs: Open your form, inspect element on a field, and look for "entry.[number]" in the name attribute
+  const entryIds = {
+    projectType: "entry.123456789",  // Replace with actual entry ID for "Project Type"
+    learningTrack: "entry.987654321", // Replace with actual entry ID for "Learning Track"
+    price: "entry.456789123"          // Replace with actual entry ID for "Price"
+  };
+
+  // Build query parameters
+  const formParams = new URLSearchParams({
+    [entryIds.projectType]: selectedProject.name,
+    [entryIds.learningTrack]: learningTrack.charAt(0).toUpperCase() + learningTrack.slice(1),
+    [entryIds.price]: selectedTrack.price,
+    embedded: "true"
+  });
+
+  const prefilledFormUrl = `${baseFormUrl}?${formParams.toString()}`;
 
   return (
     <div className="bg-slate-50 min-h-screen py-20">
@@ -215,7 +237,7 @@ function EnrollmentForm() {
                 {/* GOOGLE FORM */}
                 <div className="w-full overflow-hidden rounded-xl border-2 border-slate-200">
                   <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSfcHYdCTz7KWI7GwiP3Xd9pInNJY6MH5G0LtlYLPyICShFaug/viewform?usp=publish-editor"
+                    src={prefilledFormUrl}
                     className="w-full h-[1000px] md:h-[1200px]"
                     frameBorder="0"
                     marginHeight="0"

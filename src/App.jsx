@@ -6,6 +6,7 @@ import Courses from "./pages/Courses";
 import Projects from "./pages/Projects";
 import Certificate from "./pages/Certificate";
 import Contact from "./pages/Contact";
+import EnrollmentForm from "./pages/EnrollmentForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/enrollment-form" element={<EnrollmentForm />} />
       </Routes>
     </Layout>
   );
